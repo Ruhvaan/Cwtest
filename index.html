@@ -1337,6 +1337,30 @@ function calculateAndShowSummary(){
 
 function showSummary(){ calculateAndShowSummary(); }
 </script>
+  <script>
+  // Yaha tumhara existing timer/test code hoga, use mat hatao
+
+  const startBtn = document.getElementById('startTestBtn'); // jo bhi tumhara Start Test button ka id hai
+  if (startBtn) {
+      startBtn.addEventListener('click', () => {
+          const main = document.querySelector('.main-container');
+          if (main) {
+              main.style.width = window.innerWidth + 'px';
+              main.style.height = window.innerHeight + 'px';
+          }
+      });
+  }
+
+  window.addEventListener('resize', () => {
+      const main = document.querySelector('.main-container');
+      if (main) {
+          main.style.width = window.innerWidth + 'px';
+          main.style.height = window.innerHeight + 'px';
+      }
+  });
+</script>
+</body>
+
 </body>
 </html>
 
