@@ -1,0 +1,1345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JEE Main Part Test-1 – PCM</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    body{background:#f1f3f6;color:#111}
+    .app{max-width:1100px;margin:0 auto;padding:16px}
+    header{background:#003366;color:#fff;padding:12px 16px;border-radius:8px 8px 0 0}
+    header h1{font-size:18px;margin-bottom:4px}
+    header p{font-size:12px;opacity:.9}
+    .card{background:#fff;border-radius:0 0 8px 8px;box-shadow:0 2px 6px rgba(0,0,0,.1);padding:16px}
+    .row{display:flex;gap:16px;flex-wrap:wrap}
+    .col-main{flex:1 1 620px;min-width:0}
+    .col-side{flex:0 0 280px}
+    .panel{border:1px solid #dde3ef;border-radius:6px;margin-bottom:12px}
+    .panel-header{background:#f5f7fb;border-bottom:1px solid #dde3ef;padding:8px 10px;font-size:13px;font-weight:600}
+    .panel-body{padding:10px}
+    .login-grid{display:grid;grid-template-columns:110px 1fr;row-gap:6px;column-gap:8px;font-size:13px}
+    .login-grid label{text-align:right;margin-top:4px}
+    .login-grid input{padding:4px 6px;font-size:13px;width:100%}
+    .btn{border:none;outline:none;padding:7px 14px;font-size:13px;border-radius:4px;cursor:pointer}
+    .btn-primary{background:#007bff;color:#fff}
+    .btn-primary:disabled{background:#9bbcf3;cursor:not-allowed}
+    .btn-danger{background:#d9534f;color:#fff}
+    .btn-secondary{background:#e0e3eb}
+    .top-bar{display:flex;justify-content:space-between;align-items:center;font-size:13px;margin-bottom:8px}
+    .timer{font-weight:700;color:#c00}
+    .subject-tabs{display:flex;gap:4px;margin-bottom:8px;flex-wrap:wrap}
+    .tab{padding:5px 10px;font-size:12px;border-radius:20px;border:1px solid #ccd4e2;background:#f5f7fb;cursor:pointer}
+    .tab.active{background:#003366;color:#fff;border-color:#003366}
+    .q-header{display:flex;justify-content:space-between;align-items:center;font-size:13px;margin-bottom:6px}
+    .q-text{font-size:14px;margin-bottom:8px;line-height:1.4;white-space:pre-wrap}
+    .options{list-style:none;font-size:13px}
+    .options li{padding:6px 8px;margin-bottom:4px;border-radius:4px;border:1px solid #d3d8e4;cursor:pointer;display:flex;align-items:flex-start;gap:6px}
+    .options li span.opt-label{font-weight:600;min-width:18px}
+    .options li.selected{background:#e7f1ff;border-color:#007bff}
+    .num-input{width:150px;padding:4px 6px;font-size:13px}
+    .q-actions{display:flex;gap:8px;margin-top:8px}
+    .q-actions .btn{flex:0 0 auto}
+    .palette-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+    .qbtn{padding:6px 0;font-size:11px;border-radius:4px;border:1px solid #d3d8e4;background:#f5f7fb;cursor:pointer}
+    .qbtn.answered{background:#28a745;color:#fff;border-color:#1e7e34}
+    .qbtn.marked{background:#ffc107;color:#000;border-color:#e0a800}
+    .qbtn.current{box-shadow:0 0 0 2px #003366 inset}
+    .qbtn.notvisited{background:#f5f7fb}
+    .qbtn.notanswered{background:#dc3545;color:#fff;border-color:#b21f2d}
+    .legend{display:flex;flex-wrap:wrap;gap:6px;font-size:11px;margin-top:6px}
+    .legend span{display:inline-flex;align-items:center;gap:3px}
+    .lg-box{width:14px;height:14px;border-radius:3px;border:1px solid #d3d8e4}
+    .lg-ans{background:#28a745;border-color:#1e7e34}
+    .lg-mark{background:#ffc107;border-color:#e0a800}
+    .lg-na{background:#dc3545;border-color:#b21f2d}
+    .lg-nv{background:#f5f7fb}
+    .summary{font-size:13px;border-collapse:collapse;width:100%;margin-top:6px}
+    .summary th,.summary td{border:1px solid #d3d8e4;padding:4px 6px;text-align:center}
+    .summary th{text-align:center;background:#f5f7fb}
+    .hidden{display:none}
+    @media(max-width:900px){
+      .row{flex-direction:column}
+      .col-side{flex:1 1 auto}
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>JEE MAIN CATALYST SERIES – Part Test‑1 (PCM)</h1>
+    <p>Duration: 3 Hours &nbsp; | &nbsp; Maximum Marks: 300</p>
+  </header>
+  <div class="card" id="appRoot">
+
+    <!-- LOGIN PANEL -->
+    <div id="loginView">
+      <div class="panel">
+        <div class="panel-header">Candidate Login (Demo)</div>
+        <div class="panel-body">
+          <div class="login-grid">
+            <label for="name">Candidate Name:</label>
+            <input id="name" type="text" placeholder="Enter your name" />
+            <label for="roll">Application / Roll No.:</label>
+            <input id="roll" type="text" placeholder="Enter roll number" />
+            <label for="paper">Paper:</label>
+            <input id="paper" type="text" value="Part Test‑1 – PCM" />
+          </div>
+          <p style="font-size:11px;margin-top:10px;color:#555;">
+            Note: This is a local demo CBT. Use on full screen, do not refresh during the test.
+          </p>
+          <button class="btn btn-primary" style="margin-top:10px;" onclick="startTest()">Proceed to Instructions</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSTRUCTIONS PANEL -->
+    <div id="instView" class="hidden">
+      <div class="panel">
+        <div class="panel-header">General Instructions</div>
+        <div class="panel-body" style="font-size:13px;line-height:1.5;">
+          <ul style="margin-left:18px;">
+            <li>This demo shows JEE Main style CBT for <b>Physics, Chemistry, Mathematics</b>.</li>
+            <li>Each subject has 25 questions (20 MCQ + 5 numerical).</li>
+            <li>MCQ: +4 correct, −1 incorrect, 0 if not answered. Numerical: +4 correct, 0 otherwise.</li>
+            <li>Use the subject tabs and question palette to navigate.</li>
+          </ul>
+          <p style="margin-top:8px;">Click on <b>Start Test</b> to begin the 3‑hour countdown.</p>
+          <button class="btn btn-primary" style="margin-top:8px;" onclick="beginExam()">Start Test</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEST PANEL -->
+    <div id="testView" class="hidden">
+      <div class="row">
+        <div class="col-main">
+          <div class="panel">
+            <div class="panel-header">
+              <div class="top-bar">
+                <div>
+                  Candidate: <b id="candName"></b> &nbsp; | &nbsp;
+                  Roll No.: <b id="candRoll"></b> &nbsp; | &nbsp;
+                  Subject:
+                  <b id="subjectLabel">Physics</b>
+                </div>
+                <div class="timer">Time Left: <span id="timerTxt">03:00:00</span></div>
+              </div>
+            </div>
+            <div class="panel-body">
+
+              <div class="subject-tabs">
+                <button id="tabPhy"  class="tab active" onclick="switchSubject('physics')">Physics</button>
+                <button id="tabChem" class="tab"         onclick="switchSubject('chemistry')">Chemistry</button>
+                <button id="tabMath" class="tab"         onclick="switchSubject('maths')">Mathematics</button>
+              </div>
+
+              <div class="q-header">
+                <div>
+                  Question <b id="qNumberLabel">1</b> of <b id="totalQLabel">25</b>
+                  (<span id="subShort">Phy</span>)
+                </div>
+                <div id="qTypeLabel" style="font-size:12px;color:#555;"></div>
+              </div>
+              <div class="q-text" id="qText"></div>
+
+              <!-- MCQ OPTIONS -->
+              <ul class="options" id="optList"></ul>
+
+              <!-- NUMERIC INPUT -->
+              <div id="numBox" class="hidden">
+                <label style="font-size:13px;">Enter your answer (numeric):</label><br/>
+                <input id="numInput" class="num-input" type="text" />
+              </div>
+
+              <div class="q-actions">
+                <button class="btn btn-secondary" onclick="clearResponse()">Clear Response</button>
+                <button class="btn btn-secondary" onclick="markForReview()">Mark for Review &amp; Next</button>
+                <button class="btn btn-primary" onclick="saveAndNext()">Save &amp; Next</button>
+                <button class="btn btn-danger" style="margin-left:auto;" onclick="finishTest()">Finish</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel hidden" id="summaryPanel">
+            <div class="panel-header">Test Summary</div>
+            <div class="panel-body">
+              <table class="summary">
+                <tr>
+                  <th>Subject</th><th>Questions</th><th>Attempted</th><th>Correct</th>
+                  <th>Wrong</th><th>Marks</th>
+                </tr>
+                <tr>
+                  <td>Physics</td>
+                  <td id="smTotalP"></td>
+                  <td id="smAttP"></td>
+                  <td id="smCorP"></td>
+                  <td id="smWrP"></td>
+                  <td id="smMkP"></td>
+                </tr>
+                <tr>
+                  <td>Chemistry</td>
+                  <td id="smTotalC"></td>
+                  <td id="smAttC"></td>
+                  <td id="smCorC"></td>
+                  <td id="smWrC"></td>
+                  <td id="smMkC"></td>
+                </tr>
+                <tr>
+                  <td>Mathematics</td>
+                  <td id="smTotalM"></td>
+                  <td id="smAttM"></td>
+                  <td id="smCorM"></td>
+                  <td id="smWrM"></td>
+                  <td id="smMkM"></td>
+                </tr>
+              </table>
+              <p style="font-size:13px;margin-top:6px;">
+                Overall Score: <b id="smOverall"></b> / <b id="smOverallMax"></b>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-side">
+          <div class="panel">
+            <div class="panel-header">Question Palette (<span id="palTitle">Physics 1‑25</span>)</div>
+            <div class="panel-body">
+              <div class="palette-grid" id="palette"></div>
+              <div class="legend">
+                <span><span class="lg-box lg-ans"></span> Answered</span>
+                <span><span class="lg-box lg-na"></span> Not Answered</span>
+                <span><span class="lg-box lg-nv"></span> Not Visited</span>
+                <span><span class="lg-box lg-mark"></span> Marked for Review</span>
+              </div>
+              <button class="btn btn-secondary" style="margin-top:8px;width:100%;" onclick="showSummary()">View Summary</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* ===== 1. QUESTIONS DATA ===== */
+
+/* === PHYSICS QUESTIONS === */
+/* Yahan apna original Physics questions array (25 Q) paste karo
+   format:
+   { id, type:"mcq"/"num", text, options:[...], correctIndex } ya { answer:"" } */
+const physicsQuestions = [
+  // REPLACE this demo with your real Physics 25-question array
+  { id: 1,
+    type: "mcq",
+    text: "A plank of mass m1 = 8 kg with a bar of mass m2 = 2 kg on its rough surface lies on a smooth floor of an elevator ascending with acceleration g/4. The coefficient of friction between m1 and m2 is 1/5. A horizontal force F = 30 N is applied to the plank. The accelerations of bar and plank in the frame of the elevator are (take g = 10 m/s²):",
+    options: [
+      "3.5 m/s², 5 m/s²",
+      "5 m/s², ? m/s²",
+      "2.5 m/s², ? m/s²",
+      "4.5 m/s², 4.5 m/s²"
+    ],
+    correctIndex: 2   // option C in key
+  },
+  {
+    id: 2,
+    type: "mcq",
+    text: "A spring (force constant k, mass m) hangs vertically and supports a block of mass M ≫ m. The block stretches the spring to twice its relaxed length. Time taken for a small transverse pulse to travel the stretched length is:",
+    options: [
+      "2√(m/k)",
+      "√(2k/m)",
+      "√(m/k)",
+      "None of these"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 3,
+    type: "mcq",
+    text: "An aluminium wire of length 60 cm is joined to a steel wire of length 80 cm and stretched between two supports with tension 40 N. Areas: Al = 3 mm², steel = 1 mm². Densities: ρ(Al) = 2.6 g/cm³, ρ(steel) = 7.8 g/cm³. Minimum frequency of tuning fork producing standing waves with joint as node is:",
+    options: [
+      "90 Hz",
+      "145 Hz",
+      "180 Hz",
+      "250 Hz"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 4,
+    type: "mcq",
+    text: "In hydrogen atom, first Bohr radius is 0.53 Å and ground‑state energy is −13.6 eV. If electron is replaced by a muon of mass 207 mₑ (same charge), the first Bohr radius and ground‑state energy become approximately:",
+    options: [
+      "0.53×10⁻¹³ m, −3.6 eV",
+      "25.6×10⁻¹³ m, −2.8 eV",
+      "2.56×10⁻¹³ m, −2.8 keV",
+      "2.56×10⁻¹³ m, −13.6 eV"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 5,
+    type: "mcq",
+    text: "An α‑particle and a proton move in a uniform magnetic field B (perpendicular to their velocities) such that the radii of their circular paths are equal. The ratio of their de‑Broglie wavelengths λα / λp is:",
+    options: [
+      "1 : 1",
+      "4 : 1",
+      "1 : 2",
+      "2 : 1"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 6,
+    type: "mcq",
+    text: "A photon of energy 10.2 eV collides inelastically with a ground‑state hydrogen atom at rest. After a microsecond, another photon of energy 15 eV collides inelastically with the same atom. What is detected?",
+    options: [
+      "Two photons of energy 10.2 eV",
+      "Two photons of energy 1.4 eV",
+      "One photon of 10.2 eV and one electron of 1.4 eV",
+      "One photon of 10.2 eV and another of 1.4 eV"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 7,
+    type: "mcq",
+    text: "A flat car is given constant acceleration a₀ = 2 m/s². A crate A of mass 50 kg is on the car. Coefficient of friction between crate and car floor is 0.3. Neglect all other frictions. Tension in cable (see figure in original test) is:",
+    options: [
+      "700 N",
+      "350 N",
+      "175 N",
+      "0"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 8,
+    type: "mcq",
+    text: "On a composite incline of angle α, upper portion smooth and lower portion rough, a particle slides from rest at the top and just comes to rest at the bottom. If the ratio of smooth:rough lengths is m:n, the coefficient of friction is:",
+    options: [
+      "(m − n) tanα / (m + n)",  // written succinctly
+      "(m/n) cotα",
+      "(m/n) tanα",
+      "tanα"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 9,
+    type: "mcq",
+    text: "Critical velocity v_c for liquid flow in a tube depends on coefficient of viscosity η, density ρ, and tube radius r. If v_c ∝ ηˣ ρʸ rᶻ, then (x, y, z) are:",
+    options: [
+      "(1, 1, 1)",
+      "(−1, −1, 1)",
+      "(−1, −1, −1)",
+      "(1, −1, −1)"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 10,
+    type: "mcq",
+    text: "Assuming about 20 MeV energy is released per fusion reaction ²¹H + ³¹H → ⁴²He + n, the mass of ²¹H consumed per day in a future fusion reactor of power 1 MW is approximately:",
+    options: [
+      "0.1 g",
+      "0.01 g",
+      "1 g",
+      "10 g"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 11,
+    type: "mcq",
+    text: "A closed organ pipe of length l vibrates in its 3rd overtone (4th harmonic) with maximum amplitude a. Amplitude at distance l/7 from the closed end is:",
+    options: [
+      "a",
+      "a/2",
+      "a/√2",
+      "0"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 12,
+    type: "mcq",
+    text: "A wave on a string is y = A sin(kx − ωt). It is reflected at x = ℓ. The equation of the reflected wave is:",
+    options: [
+      "A sin(kx − ωt)",
+      "A sin(kx + ωt + 2kℓ)",   // effective phase
+      "A sin(−kx − ωt)",
+      "A sin(kx − ωt/2)"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 13,
+    type: "mcq",
+    text: "A metal wire has mass (0.4 ± 0.002) g, radius (0.3 ± 0.001) mm, and length (5.0 ± 0.02) cm. Maximum possible percentage error in density is nearly:",
+    options: [
+      "1.3%",
+      "1.6%",
+      "1.4%",
+      "1.2%"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 14,
+    type: "mcq",
+    text: "Minimum frequency with which an iron rod of length 3l, fixed at one end, can resonate with a free rod of length 4l (wave speed v₀ in iron) is:",
+    options: [
+      "v₀ / 4l",
+      "v₀ / 12l",
+      "v₀ / 8l",
+      "v₀ / 24l"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 15,
+    type: "mcq",
+    text: "A screw gauge has 2 threads in 1 mm. Circular scale has 50 divisions. Main scale shows 6 divisions and circular scale reads 46. The diameter of the wire is:",
+    options: [
+      "6.46 mm",
+      "3.46 mm",
+      "6.54 mm",
+      "3.04 mm"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 16,
+    type: "mcq",
+    text: "In fission ²³⁶₉₂U → ¹¹⁷X + ¹¹⁷Y + 2n, average binding energy/nucleon of X and Y is 8.5 MeV, and that of ²³⁶U is 7.6 MeV. Total energy liberated is about:",
+    options: [
+      "200 keV",
+      "2 MeV",
+      "200 MeV",
+      "2000 MeV"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 17,
+    type: "mcq",
+    text: "Photoelectric emission from a surface is observed for frequencies ν₁ and ν₂ (ν₂ > ν₁). The maximum K.E. of emitted electrons are in ratio 1:k. The threshold frequency ν₀ is:",
+    options: [
+      "ν₀ = (kν₂ − ν₁)/(k − 1)",
+      "ν₀ = (kν₁ − ν₂)/(k − 1)",
+      "ν₀ = (kν₂ − ν₁)/(k + 1)",
+      "ν₀ = (ν₂ − kν₁)/(k − 1)"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 18,
+    type: "mcq",
+    text: "A rectangular pulse and a triangular pulse move toward each other along x‑axis with speed 0.5 cm/s. At x = 0.5 cm and t = 2 s, the resultant displacement of string is:",
+    options: [
+      "3.5 cm",
+      "2.5 cm",
+      "4.0 cm",
+      "3.0 cm"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 19,
+    type: "mcq",
+    text: "A transverse wave on a string (snapshot shown in original figure) travels left to right. Which statement is wrong?\n(A) D,E,F have upward (positive) velocity\n(B) A,B,H have downward (negative) velocity\n(C) C,G have zero velocity\n(D) A,E have minimum velocity",
+    options: [
+      "Statement (A) is wrong",
+      "Statement (B) is wrong",
+      "Statement (C) is wrong",
+      "Statement (D) is wrong"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 20,
+    type: "mcq",
+    text: "Time intervals measured by a clock: 1.25, 1.24, 1.27, 1.21, 1.28 s. Percentage relative error of observations is:",
+    options: [
+      "2%",
+      "4%",
+      "16%",
+      "1.6%"
+    ],
+    correctIndex: 3
+  },
+
+  /* Section B: numerical (Q21–Q25) */
+  {
+    id: 21,
+    type: "num",
+    text: "A star composed of pure helium (100% ⁴He) converts three ⁴He to one ¹²C via triple‑alpha process: ³(⁴He) → ¹²C + Q. Star mass = 2.0×10³² kg, power = 5.808×10³⁰ W. The rate of conversion of ⁴He to ¹²C is n×10⁴² s⁻¹. Find n (integer).",
+    answer: "15"
+  },
+  {
+    id: 22,
+    type: "num",
+    text: "An electron in hydrogen initially in fourth excited state (n = 5) jumps to level n by emitting a photon of energy 2.86 eV. Find n.",
+    answer: "2"
+  },
+  {
+    id: 23,
+    type: "num",
+    text: "Transverse pulse travels along a non‑uniform wire of length 2 m under tension 9 N. Mass per unit length μ = 4x² kg/m, x measured from light end. Time taken by pulse from x=0 to x=2 m is (in s):",
+    answer: "1.25"
+  },
+  {
+    id: 24,
+    type: "num",
+    text: "In a 3‑block system (data as in test), minimum horizontal force F (in N) so that sliding between middle and lower block starts (g = 10 m/s²) is:",
+    answer: "30"
+  },
+  {
+    id: 25,
+    type: "num",
+    text: "For a given displacement‑vs‑time graph of a particle of a string, amplitude of the wave is  ___ cm.",
+    answer: "5"}
+];
+
+/* === CHEMISTRY QUESTIONS (from previous message) === */
+const chemistryQuestions = [
+  {
+    id: 1,
+    type: "mcq",
+    text: "A 1000 g aqueous solution contains 200 g of CaBr₂. Calculate the molality of the solution. (Atomic masses: Ca = 40, Br = 80)",
+    options: [
+      "1.0 mol kg⁻¹",
+      "2.0 mol kg⁻¹",
+      "1.25 mol kg⁻¹",
+      "0.20 mol kg⁻¹"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 2,
+    type: "mcq",
+    text: "50 mL of 20‑volume H₂O₂ is mixed with 200 mL of 10‑volume H₂O₂. Assuming density is same as water, what is the volume strength of the resulting solution?",
+    options: [
+      "15‑volume",
+      "17.5‑volume",
+      "18‑volume",
+      "12‑volume"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 3,
+    type: "mcq",
+    text: "In Kjeldahl’s method, NH₃ evolved from 14 g of an organic compound is absorbed in 100 mL of 1 M H₃PO₄. The excess acid requires 100 mL of 0.5 M NaOH for complete neutralisation. Percentage of nitrogen in the compound is:",
+    options: [
+      "25%",
+      "50%",
+      "5.0%",
+      "2.5%"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 4,
+    type: "mcq",
+    text: "A moth repellent contains 49% C, 2.7% H and 48.3% Cl by mass. The molecular formula of the compound is:",
+    options: [
+      "C₆H₄Cl₂",
+      "C₃H₃Cl",
+      "C₂H₂Cl",
+      "C₂H₄Cl₂"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 5,
+    type: "mcq",
+    text: "Potassium superoxide (KO₂) is used in breathing masks. For the reaction 4KO₂ + 2H₂O → 4KOH + 3O₂, if 8 mol KO₂ and 5 mol H₂O are present, the mass of O₂ (in g) produced is:",
+    options: [
+      "5 g",
+      "6 g",
+      "160 g",
+      "192 g"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 6,
+    type: "mcq",
+    text: "A liquid A has vapour pressure 70 torr at 27°C. A solution contains mole fraction of B = 0.2 and shows total vapour pressure 84 torr at 27°C and behaves ideally. Vapour pressure of pure liquid B (in torr) at 27°C is:",
+    options: [
+      "14",
+      "56",
+      "140",
+      "70"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 7,
+    type: "mcq",
+    text: "Which of the following aqueous solutions at 300 K will have the highest vapour pressure? (α = degree of dissociation)",
+    options: [
+      "0.1 M CH₃COOH, α = 0.7",
+      "0.1 M KCl, α = 1",
+      "0.1 M Na₂SO₄, α = 1",
+      "0.1 M K₂[ZnFe(CN)₆], α = 1"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 8,
+    type: "mcq",
+    text: "For the following transformations, which statement is NOT correct?\n(i) Nitrobenzene → Aniline (reduction)\n(ii) Nitrobenzene (strongly deactivated ring) undergoing Friedel–Crafts reaction\n(iii) Nitro group reduction followed by nucleophilic substitution\nChoose the incorrect given option similar to the original question.",
+    options: [
+      "A is incorrect",
+      "B is incorrect (Friedel–Crafts on highly deactivated ring)",
+      "C is incorrect",
+      "D is incorrect"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 9,
+    type: "mcq",
+    text: "Isopropylbenzene (cumene) reacts with O₂ (hv, BF₃) giving cumene hydroperoxide, which on hydrolysis and subsequent work‑up gives P, Q, R. The correct set of products P, Q, R is:",
+    options: [
+      "Benzaldehyde, phenol, acetone",
+      "Toluene, phenol, ethanol",
+      "Benzyl alcohol, phenol, formaldehyde",
+      "Phenol and acetone (major), along with side product"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 10,
+    type: "mcq",
+    text: "Match the reactions with products:\nP) Phenol + CHCl₃/NaOH → ?\nQ) Phenol + conc. HNO₃ → ?\nR) Salicylic acid + acetic anhydride → ?\nS) Phenol → (i) NaOH (ii) CO₂/H⁺ → ?",
+    options: [
+      "P: Salicylic acid; Q: Picric acid; R: Aspirin; S: Salicylaldehyde",
+      "P: Salicylaldehyde; Q: Picric acid; R: Aspirin; S: Salicylic acid",
+      "P: Picric acid; Q: Salicylic acid; R: Aspirin; S: Salicylaldehyde",
+      "P: Salicylaldehyde; Q: Salicylic acid; R: Picric acid; S: Aspirin"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 11,
+    type: "mcq",
+    text: "Which statement about distinguishing the given pairs is incorrect?\n(A) Alkynes detected by ammoniacal Cu₂Cl₂\n(B) Glucose and fructose distinguished by Fehling’s solution\n(C) –CHO group detected by Tollens’ reagent\n(D) Phenol detected by neutral FeCl₃",
+    options: [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 12,
+    type: "mcq",
+    text: "Match List I (compound type) with List II (reagent used):\nA) Aliphatic aldehyde\nB) Phenol\nC) Primary amine\nD) Methyl ketone or ethanol with CH₃–C– or CH₃–CH–OH structure\nList II:\nI) Alkaline CuSO₄ + sodium citrate\nII) Neutral FeCl₃\nIII) Alkaline chloroform\nIV) KI + NaOCl (iodoform test)\nChoose correct matching.",
+    options: [
+      "A–II, B–IV, C–III, D–I",
+      "A–IV, B–I, C–II, D–III",
+      "A–III, B–IV, C–I, D–II",
+      "A–III, B–IV, C–II, D–I"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 13,
+    type: "mcq",
+    text: "Buna‑N rubber can be represented by which repeating unit (polymer structure)?",
+    options: [
+      "–[CH₂–CH(Cl)]–",
+      "–[CH₂–CH=CH–CH₂–CH₂–CH(CN)]–",
+      "–[CH₂–CH=CH–CH₂–CH₂–CH₂]–",
+      "–[CH₂–CH(CN)]–"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 14,
+    type: "mcq",
+    text: "Identify the correct description of the given Fischer and Haworth structures (as in the original): one is L‑glucose, the other β‑glucopyranose, and one is D‑fructose. Choose the correct combination.",
+    options: [
+      "D‑Glucose, β‑glucopyranose, D‑fructose",
+      "L‑Glucose, β‑glucopyranose, L‑fructose",
+      "L‑Glucose, α‑glucopyranose, D‑fructose",
+      "L‑Glucose, β‑glucopyranose, D‑fructose"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 15,
+    type: "mcq",
+    text: "According to molecular orbital theory, which statement regarding Li₂ and Li₂⁻ is correct?",
+    options: [
+      "Both are unstable",
+      "Li₂ is unstable and Li₂⁻ is stable",
+      "Li₂ is stable and Li₂⁻ is unstable",
+      "Both Li₂ and Li₂⁻ are stable"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 16,
+    type: "mcq",
+    text: "Aluminium commonly shows +3 oxidation state, but thallium exists in +1 and +3 states. This difference is mainly due to:",
+    options: [
+      "Lanthanoid contraction",
+      "Lattice energy effect",
+      "Diagonal relationship",
+      "Inert pair effect"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 17,
+    type: "mcq",
+    text: "In which of the following processes does bond order increase and paramagnetic character change to diamagnetic?",
+    options: [
+      "O₂ → O₂⁻",
+      "O₂ → O₂²⁻",
+      "NO → NO⁺",
+      "N₂ → N₂⁺"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 18,
+    type: "mcq",
+    text: "In XeOF₄, the hybridisation of Xe and number of lone pairs on Xe are respectively:",
+    options: [
+      "sp³d and 2",
+      "sp³d² and 2",
+      "sp³d² and 1",
+      "sp³d and 1"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 19,
+    type: "mcq",
+    text: "Which of the following molecules is diamagnetic?",
+    options: [
+      "B₂",
+      "N₂",
+      "O₂",
+      "S₂"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 20,
+    type: "mcq",
+    text: "In which of the following ionisation processes does bond energy increase and magnetic behaviour change from paramagnetic to diamagnetic?",
+    options: [
+      "NO → NO⁺",
+      "N₂ → N₂⁺",
+      "C₂ → C₂⁺",
+      "O₂ → O₂⁺"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 21,
+    type: "num",
+    text: "A solution contains 20 g haemoglobin in 1 dm³, separated from pure water by a semipermeable membrane at 300 K. At equilibrium, the solution column is 96 mm higher than water. Density of final solution = 1.013 g mL⁻¹, g = 10 m s⁻², R = 0.08 L atm K⁻¹ mol⁻¹. Number of millimoles in 320 g haemoglobin is:",
+    answer: "6.4"
+  },
+  {
+    id: 22,
+    type: "num",
+    text: "For an ethanol–water solution at room temperature showing positive deviation from Raoult’s law, consider:\n(i) ΔG = 0\n(ii) ΔS_system > 0\n(iii) ΔS_surroundings < 0\n(iv) ΔH = 0\nHow many of these statements are correct?",
+    answer: "2"
+  },
+  {
+    id: 23,
+    type: "num",
+    text: "From the set NO₂, OCH₃, Cl, CH₃, CHO, CN, NH₂, SO₃H, CH₃ (substituents on benzene), total number of compounds that undergo electrophilic aromatic substitution faster than benzene is:",
+    answer: "5"
+  },
+  {
+    id: 24,
+    type: "num",
+    text: "Total number of sp² hybrid orbitals present in a benzene (C₆H₆) molecule is:",
+    answer: "24"
+  },
+  {
+    id: 25,
+    type: "num",
+    text: "From the species XeF₅⁻, XeO₃, XeO₂F₂, XeF₅, XeO₃F₂, XeOF₄, XeF₄, number of xenon compounds having exactly one lone pair on central Xe is:",
+    answer: "4"
+  }
+];
+
+/* === MATHS QUESTIONS === */
+/* Yahan apna Maths ka 25‑question array paste karo
+   (jo tumhari maths CBT file me const questions = [...] tha), naam mathsQuestions. */
+const mathsQuestions = [
+  // REPLACE this demo with your real Maths 25-question array
+  {
+    id: 1,
+    type: "mcq",
+    text: "A 1000 g aqueous solution contains 200 g of CaBr₂. Calculate the molality of the solution. (Atomic masses: Ca = 40, Br = 80)",
+    options: [
+      "1.0 mol kg⁻¹",
+      "2.0 mol kg⁻¹",
+      "1.25 mol kg⁻¹",
+      "0.20 mol kg⁻¹"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 2,
+    type: "mcq",
+    text: "50 mL of 20‑volume H₂O₂ is mixed with 200 mL of 10‑volume H₂O₂. Assuming density is same as water, what is the volume strength of the resulting solution?",
+    options: [
+      "15‑volume",
+      "17.5‑volume",
+      "18‑volume",
+      "12‑volume"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 3,
+    type: "mcq",
+    text: "In Kjeldahl’s method, NH₃ evolved from 14 g of an organic compound is absorbed in 100 mL of 1 M H₃PO₄. The excess acid requires 100 mL of 0.5 M NaOH for complete neutralisation. Percentage of nitrogen in the compound is:",
+    options: [
+      "25%",
+      "50%",
+      "5.0%",
+      "2.5%"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 4,
+    type: "mcq",
+    text: "A moth repellent contains 49% C, 2.7% H and 48.3% Cl by mass. The molecular formula of the compound is:",
+    options: [
+      "C₆H₄Cl₂",
+      "C₃H₃Cl",
+      "C₂H₂Cl",
+      "C₂H₄Cl₂"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 5,
+    type: "mcq",
+    text: "Potassium superoxide (KO₂) is used in breathing masks. For the reaction 4KO₂ + 2H₂O → 4KOH + 3O₂, if 8 mol KO₂ and 5 mol H₂O are present, the mass of O₂ (in g) produced is:",
+    options: [
+      "5 g",
+      "6 g",
+      "160 g",
+      "192 g"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 6,
+    type: "mcq",
+    text: "A liquid A has vapour pressure 70 torr at 27°C. A solution contains mole fraction of B = 0.2 and shows total vapour pressure 84 torr at 27°C and behaves ideally. Vapour pressure of pure liquid B (in torr) at 27°C is:",
+    options: [
+      "14",
+      "56",
+      "140",
+      "70"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 7,
+    type: "mcq",
+    text: "Which of the following aqueous solutions at 300 K will have the highest vapour pressure? (α = degree of dissociation)",
+    options: [
+      "0.1 M CH₃COOH, α = 0.7",
+      "0.1 M KCl, α = 1",
+      "0.1 M Na₂SO₄, α = 1",
+      "0.1 M K₂[ZnFe(CN)₆], α = 1"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 8,
+    type: "mcq",
+    text: "For the following transformations, which statement is NOT correct?\n(i) Nitrobenzene → Aniline (reduction)\n(ii) Nitrobenzene (strongly deactivated ring) undergoing Friedel–Crafts reaction\n(iii) Nitro group reduction followed by nucleophilic substitution\nChoose the incorrect given option similar to the original question.",
+    options: [
+      "A is incorrect",
+      "B is incorrect (Friedel–Crafts on highly deactivated ring)",
+      "C is incorrect",
+      "D is incorrect"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 9,
+    type: "mcq",
+    text: "Isopropylbenzene (cumene) reacts with O₂ (hv, BF₃) giving cumene hydroperoxide, which on hydrolysis and subsequent work‑up gives P, Q, R. The correct set of products P, Q, R is:",
+    options: [
+      "Benzaldehyde, phenol, acetone",
+      "Toluene, phenol, ethanol",
+      "Benzyl alcohol, phenol, formaldehyde",
+      "Phenol and acetone (major), along with side product"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 10,
+    type: "mcq",
+    text: "Match the reactions with products:\nP) Phenol + CHCl₃/NaOH → ?\nQ) Phenol + conc. HNO₃ → ?\nR) Salicylic acid + acetic anhydride → ?\nS) Phenol → (i) NaOH (ii) CO₂/H⁺ → ?",
+    options: [
+      "P: Salicylic acid; Q: Picric acid; R: Aspirin; S: Salicylaldehyde",
+      "P: Salicylaldehyde; Q: Picric acid; R: Aspirin; S: Salicylic acid",
+      "P: Picric acid; Q: Salicylic acid; R: Aspirin; S: Salicylaldehyde",
+      "P: Salicylaldehyde; Q: Salicylic acid; R: Picric acid; S: Aspirin"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 11,
+    type: "mcq",
+    text: "Which statement about distinguishing the given pairs is incorrect?\n(A) Alkynes detected by ammoniacal Cu₂Cl₂\n(B) Glucose and fructose distinguished by Fehling’s solution\n(C) –CHO group detected by Tollens’ reagent\n(D) Phenol detected by neutral FeCl₃",
+    options: [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 12,
+    type: "mcq",
+    text: "Match List I (compound type) with List II (reagent used):\nA) Aliphatic aldehyde\nB) Phenol\nC) Primary amine\nD) Methyl ketone or ethanol with CH₃–C– or CH₃–CH–OH structure\nList II:\nI) Alkaline CuSO₄ + sodium citrate\nII) Neutral FeCl₃\nIII) Alkaline chloroform\nIV) KI + NaOCl (iodoform test)\nChoose correct matching.",
+    options: [
+      "A–II, B–IV, C–III, D–I",
+      "A–IV, B–I, C–II, D–III",
+      "A–III, B–IV, C–I, D–II",
+      "A–III, B–IV, C–II, D–I"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 13,
+    type: "mcq",
+    text: "Buna‑N rubber can be represented by which repeating unit (polymer structure)?",
+    options: [
+      "–[CH₂–CH(Cl)]–",
+      "–[CH₂–CH=CH–CH₂–CH₂–CH(CN)]–",
+      "–[CH₂–CH=CH–CH₂–CH₂–CH₂]–",
+      "–[CH₂–CH(CN)]–"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 14,
+    type: "mcq",
+    text: "Identify the correct description of the given Fischer and Haworth structures (as in the original): one is L‑glucose, the other β‑glucopyranose, and one is D‑fructose. Choose the correct combination.",
+    options: [
+      "D‑Glucose, β‑glucopyranose, D‑fructose",
+      "L‑Glucose, β‑glucopyranose, L‑fructose",
+      "L‑Glucose, α‑glucopyranose, D‑fructose",
+      "L‑Glucose, β‑glucopyranose, D‑fructose"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 15,
+    type: "mcq",
+    text: "According to molecular orbital theory, which statement regarding Li₂ and Li₂⁻ is correct?",
+    options: [
+      "Both are unstable",
+      "Li₂ is unstable and Li₂⁻ is stable",
+      "Li₂ is stable and Li₂⁻ is unstable",
+      "Both Li₂ and Li₂⁻ are stable"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 16,
+    type: "mcq",
+    text: "Aluminium commonly shows +3 oxidation state, but thallium exists in +1 and +3 states. This difference is mainly due to:",
+    options: [
+      "Lanthanoid contraction",
+      "Lattice energy effect",
+      "Diagonal relationship",
+      "Inert pair effect"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 17,
+    type: "mcq",
+    text: "In which of the following processes does bond order increase and paramagnetic character change to diamagnetic?",
+    options: [
+      "O₂ → O₂⁻",
+      "O₂ → O₂²⁻",
+      "NO → NO⁺",
+      "N₂ → N₂⁺"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 18,
+    type: "mcq",
+    text: "In XeOF₄, the hybridisation of Xe and number of lone pairs on Xe are respectively:",
+    options: [
+      "sp³d and 2",
+      "sp³d² and 2",
+      "sp³d² and 1",
+      "sp³d and 1"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 19,
+    type: "mcq",
+    text: "Which of the following molecules is diamagnetic?",
+    options: [
+      "B₂",
+      "N₂",
+      "O₂",
+      "S₂"
+    ],
+    correctIndex: 1
+  },
+  {
+    id: 20,
+    type: "mcq",
+    text: "In which of the following ionisation processes does bond energy increase and magnetic behaviour change from paramagnetic to diamagnetic?",
+    options: [
+      "NO → NO⁺",
+      "N₂ → N₂⁺",
+      "C₂ → C₂⁺",
+      "O₂ → O₂⁺"
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 21,
+    type: "num",
+    text: "A solution contains 20 g haemoglobin in 1 dm³, separated from pure water by a semipermeable membrane at 300 K. At equilibrium, the solution column is 96 mm higher than water. Density of final solution = 1.013 g mL⁻¹, g = 10 m s⁻², R = 0.08 L atm K⁻¹ mol⁻¹. Number of millimoles in 320 g haemoglobin is:",
+    answer: "6.4"
+  },
+  {
+    id: 22,
+    type: "num",
+    text: "For an ethanol–water solution at room temperature showing positive deviation from Raoult’s law, consider:\n(i) ΔG = 0\n(ii) ΔS_system > 0\n(iii) ΔS_surroundings < 0\n(iv) ΔH = 0\nHow many of these statements are correct?",
+    answer: "2"
+  },
+  {
+    id: 23,
+    type: "num",
+    text: "From the set NO₂, OCH₃, Cl, CH₃, CHO, CN, NH₂, SO₃H, CH₃ (substituents on benzene), total number of compounds that undergo electrophilic aromatic substitution faster than benzene is:",
+    answer: "5"
+  },
+  {
+    id: 24,
+    type: "num",
+    text: "Total number of sp² hybrid orbitals present in a benzene (C₆H₆) molecule is:",
+    answer: "24"
+  },
+  {
+    id: 25,
+    type: "num",
+    text: "From the species XeF₅⁻, XeO₃, XeO₂F₂, XeF₅, XeO₃F₂, XeOF₄, XeF₄, number of xenon compounds having exactly one lone pair on central Xe is:",
+    answer: "4"
+];
+
+/* ===== 2. STATE ===== */
+
+const subjects = ["physics","chemistry","maths"];
+const questionMap = {
+  physics: physicsQuestions,
+  chemistry: chemistryQuestions,
+  maths: mathsQuestions
+};
+
+let state = {
+  started:false,
+  currentSubject:"physics",
+  currentIndex:{ physics:0, chemistry:0, maths:0 },
+  answers:{ physics:[], chemistry:[], maths:[] },
+  visited:{ physics:[], chemistry:[], maths:[] },
+  marked:{ physics:[], chemistry:[], maths:[] },
+  timer:null,
+  remaining:3*60*60
+};
+
+function qs(id){return document.getElementById(id);}
+
+/* ===== 3. LOGIN / START ===== */
+
+function startTest(){
+  const n = qs("name").value.trim();
+  const r = qs("roll").value.trim();
+  if(!n || !r){alert("Please enter Name and Roll No.");return;}
+  qs("candName").textContent = n;
+  qs("candRoll").textContent = r;
+  qs("loginView").classList.add("hidden");
+  qs("instView").classList.remove("hidden");
+}
+
+function beginExam(){
+  if(state.started) return;
+  state.started = true;
+  subjects.forEach(sub=>{
+    const len = questionMap[sub].length;
+    state.answers[sub] = new Array(len).fill(null);
+    state.visited[sub] = new Array(len).fill(false);
+    state.marked[sub]  = new Array(len).fill(false);
+  });
+  qs("instView").classList.add("hidden");
+  qs("testView").classList.remove("hidden");
+  qs("totalQLabel").textContent = questionMap[state.currentSubject].length;
+  buildPalette();
+  showQuestion(state.currentSubject, 0);
+  startTimer();
+}
+
+/* ===== 4. TIMER ===== */
+
+function startTimer(){
+  updateTimerText();
+  state.timer = setInterval(()=>{
+    state.remaining--;
+    if(state.remaining<=0){
+      state.remaining = 0;
+      updateTimerText();
+      clearInterval(state.timer);
+      autoSubmitOnTime();
+    }else{
+      updateTimerText();
+    }
+  },1000);
+}
+function updateTimerText(){
+  const t = state.remaining;
+  const h = String(Math.floor(t/3600)).padStart(2,"0");
+  const m = String(Math.floor((t%3600)/60)).padStart(2,"0");
+  const s = String(t%60).padStart(2,"0");
+  qs("timerTxt").textContent = `${h}:${m}:${s}`;
+}
+
+/* ===== 5. SUBJECT SWITCH ===== */
+
+function switchSubject(sub){
+  state.currentSubject = sub;
+  const fullName = sub==="physics" ? "Physics"
+                 : sub==="chemistry" ? "Chemistry"
+                 : "Mathematics";
+  const shortName = sub==="physics" ? "Phy"
+                  : sub==="chemistry" ? "Chem"
+                  : "Math";
+
+  document.getElementById("subjectLabel").textContent = fullName;
+  document.getElementById("subShort").textContent = shortName;
+  document.getElementById("palTitle").textContent =
+    fullName + " 1‑" + questionMap[sub].length;
+
+  qs("tabPhy").classList.toggle("active", sub==="physics");
+  qs("tabChem").classList.toggle("active", sub==="chemistry");
+  qs("tabMath").classList.toggle("active", sub==="maths");
+
+  qs("totalQLabel").textContent = questionMap[sub].length;
+  buildPalette();
+  showQuestion(sub, state.currentIndex[sub]);
+}
+
+/* ===== 6. PALETTE ===== */
+
+function buildPalette(){
+  const pal = qs("palette");
+  pal.innerHTML = "";
+  const sub = state.currentSubject;
+  const totalQ = questionMap[sub].length;
+  for(let i=0;i<totalQ;i++){
+    const btn = document.createElement("button");
+    btn.className = "qbtn notvisited";
+    btn.textContent = (i+1);
+    btn.onclick = ()=>jumpTo(i);
+    pal.appendChild(btn);
+  }
+  updatePalette();
+}
+function updatePalette(){
+  const palChildren = qs("palette").children;
+  const sub = state.currentSubject;
+  const totalQ = questionMap[sub].length;
+  for(let i=0;i<totalQ;i++){
+    const ans = state.answers[sub][i];
+    const visited = state.visited[sub][i];
+    const marked = state.marked[sub][i];
+    let cls = "";
+    if(marked){
+      cls = "qbtn marked";
+    }else if(ans !== null && ans !== ""){
+      cls = "qbtn answered";
+    }else if(visited){
+      cls = "qbtn notanswered";
+    }else{
+      cls = "qbtn notvisited";
+    }
+    if(i === state.currentIndex[sub]) cls += " current";
+    palChildren[i].className = cls;
+  }
+}
+
+/* ===== 7. QUESTION RENDER ===== */
+
+function showQuestion(sub, idx){
+  state.currentSubject = sub;
+  state.currentIndex[sub] = idx;
+  const q = questionMap[sub][idx];
+  state.visited[sub][idx] = true;
+
+  qs("qNumberLabel").textContent = (idx+1);
+  qs("qText").textContent = q.text;
+  const qType = (q.type==="mcq") ? "Single Correct MCQ (+4, −1)" : "Numerical (+4, 0)";
+  qs("qTypeLabel").textContent = qType;
+
+  const optList = qs("optList");
+  const numBox = qs("numBox");
+  const numInput = qs("numInput");
+
+  if(q.type === "mcq"){
+    optList.classList.remove("hidden");
+    numBox.classList.add("hidden");
+    optList.innerHTML = "";
+    q.options.forEach((opt, i)=>{
+      const li = document.createElement("li");
+      if(state.answers[sub][idx] === i) li.classList.add("selected");
+      li.onclick = ()=>{
+        state.answers[sub][idx] = i;
+        showQuestion(sub, idx);
+      };
+      const spanLabel = document.createElement("span");
+      spanLabel.className = "opt-label";
+      spanLabel.textContent = String.fromCharCode(65+i)+".";
+      const spanText = document.createElement("span");
+      spanText.textContent = opt;
+      li.appendChild(spanLabel);
+      li.appendChild(spanText);
+      optList.appendChild(li);
+    });
+  }else{
+    optList.classList.add("hidden");
+    numBox.classList.remove("hidden");
+    numInput.value = state.answers[sub][idx]!==null ? state.answers[sub][idx] : "";
+    numInput.oninput = e => {
+      state.answers[sub][idx] = e.target.value.trim();
+      updatePalette();
+    };
+  }
+  updatePalette();
+}
+
+/* ===== 8. NAV / ACTIONS ===== */
+
+function jumpTo(i){ showQuestion(state.currentSubject, i); }
+
+function saveAndNext(){
+  const sub = state.currentSubject;
+  const totalQ = questionMap[sub].length;
+  const next = (state.currentIndex[sub] + 1) % totalQ;
+  showQuestion(sub, next);
+}
+function clearResponse(){
+  const sub = state.currentSubject;
+  const idx = state.currentIndex[sub];
+  const q = questionMap[sub][idx];
+  if(q.type === "mcq"){
+    state.answers[sub][idx] = null;
+  }else{
+    state.answers[sub][idx] = "";
+    qs("numInput").value = "";
+  }
+  showQuestion(sub, idx);
+}
+function markForReview(){
+  const sub = state.currentSubject;
+  const idx = state.currentIndex[sub];
+  state.marked[sub][idx] = true;
+  const totalQ = questionMap[sub].length;
+  const next = (idx + 1) % totalQ;
+  showQuestion(sub, next);
+}
+function finishTest(){
+  if(!confirm("Are you sure you want to finish the test for all subjects?")) return;
+  clearInterval(state.timer);
+  calculateAndShowSummary();
+}
+function autoSubmitOnTime(){
+  alert("Time is over. Test will be submitted automatically.");
+  calculateAndShowSummary();
+}
+
+/* ===== 9. SCORING + SUMMARY ===== */
+
+function evalSubject(sub){
+  let att=0, cor=0, wr=0, marks=0;
+  const qsArr = questionMap[sub];
+  qsArr.forEach((q,i)=>{
+    const ans = state.answers[sub][i];
+    if(q.type === "mcq"){
+      if(ans !== null){
+        att++;
+        if(ans === q.correctIndex){ cor++; marks+=4; }
+        else{ wr++; marks-=1; }
+      }
+    }else{
+      if(ans !== null && ans !== ""){
+        att++;
+        const correct = parseFloat(q.answer);
+        const user = parseFloat(ans);
+        if(!isNaN(user) && Math.abs(user-correct)<1e-3){
+          cor++; marks+=4;
+        }else{ wr++; }
+      }
+    }
+  });
+  return {att,cor,wr,marks,total:qsArr.length};
+}
+
+function calculateAndShowSummary(){
+  const phy = evalSubject("physics");
+  const chem = evalSubject("chemistry");
+  const math = evalSubject("maths");
+
+  qs("smTotalP").textContent = phy.total;
+  qs("smAttP").textContent   = phy.att;
+  qs("smCorP").textContent   = phy.cor;
+  qs("smWrP").textContent    = phy.wr;
+  qs("smMkP").textContent    = phy.marks;
+
+  qs("smTotalC").textContent = chem.total;
+  qs("smAttC").textContent   = chem.att;
+  qs("smCorC").textContent   = chem.cor;
+  qs("smWrC").textContent    = chem.wr;
+  qs("smMkC").textContent    = chem.marks;
+
+  qs("smTotalM").textContent = math.total;
+  qs("smAttM").textContent   = math.att;
+  qs("smCorM").textContent   = math.cor;
+  qs("smWrM").textContent    = math.wr;
+  qs("smMkM").textContent    = math.marks;
+
+  const overall = phy.marks + chem.marks + math.marks;
+  const overallMax = 4*(phy.total + chem.total + math.total);
+  qs("smOverall").textContent = overall;
+  qs("smOverallMax").textContent = overallMax;
+
+  qs("summaryPanel").classList.remove("hidden");
+}
+
+function showSummary(){ calculateAndShowSummary(); }
+</script>
+</body>
+</html>
