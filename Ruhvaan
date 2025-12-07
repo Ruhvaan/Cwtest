@@ -67,7 +67,7 @@
 <body>
 <div class="app">
   <header>
-    <h1>JEE MAIN CATALYST SERIES – Part Test‑1 (PCM)</h1>
+    <h1>JEE MAIN CATALYST SERIES – Part Test-1 (PCM)</h1>
     <p>Duration: 3 Hours &nbsp; | &nbsp; Maximum Marks: 300</p>
   </header>
   <div class="card" id="appRoot">
@@ -83,7 +83,7 @@
             <label for="roll">Application / Roll No.:</label>
             <input id="roll" type="text" placeholder="Enter roll number" />
             <label for="paper">Paper:</label>
-            <input id="paper" type="text" value="Part Test‑1 – PCM" />
+            <input id="paper" type="text" value="Part Test-1 – PCM" />
           </div>
           <p style="font-size:11px;margin-top:10px;color:#555;">
             Note: This is a local demo CBT. Use on full screen, do not refresh during the test.
@@ -101,10 +101,10 @@
           <ul style="margin-left:18px;">
             <li>This demo shows JEE Main style CBT for <b>Physics, Chemistry, Mathematics</b>.</li>
             <li>Each subject has 25 questions (20 MCQ + 5 numerical).</li>
-            <li>MCQ: +4 correct, −1 incorrect, 0 if not answered. Numerical: +4 correct, 0 otherwise.</li>
+            <li>MCQ: +4 correct, -1 incorrect, 0 if not answered. Numerical: +4 correct, 0 otherwise.</li>
             <li>Use the subject tabs and question palette to navigate.</li>
           </ul>
-          <p style="margin-top:8px;">Click on <b>Start Test</b> to begin the 3‑hour countdown.</p>
+          <p style="margin-top:8px;">Click on <b>Start Test</b> to begin the 3-hour countdown.</p>
           <button class="btn btn-primary" style="margin-top:8px;" onclick="beginExam()">Start Test</button>
         </div>
       </div>
@@ -203,7 +203,7 @@
 
         <div class="col-side">
           <div class="panel">
-            <div class="panel-header">Question Palette (<span id="palTitle">Physics 1‑25</span>)</div>
+            <div class="panel-header">Question Palette (<span id="palTitle">Physics 1-25</span>)</div>
             <div class="panel-body">
               <div class="palette-grid" id="palette"></div>
               <div class="legend">
@@ -226,12 +226,9 @@
 /* ===== 1. QUESTIONS DATA ===== */
 
 /* === PHYSICS QUESTIONS === */
-/* Yahan apna original Physics questions array (25 Q) paste karo
-   format:
-   { id, type:"mcq"/"num", text, options:[...], correctIndex } ya { answer:"" } */
-const physicsQuestions = [
-  // REPLACE this demo with your real Physics 25-question array
-  { id: 1,
+const physicsQuestions =[
+  {
+    id: 1,
     type: "mcq",
     text: "A plank of mass m1 = 8 kg with a bar of mass m2 = 2 kg on its rough surface lies on a smooth floor of an elevator ascending with acceleration g/4. The coefficient of friction between m1 and m2 is 1/5. A horizontal force F = 30 N is applied to the plank. The accelerations of bar and plank in the frame of the elevator are (take g = 10 m/s²):",
     options: [
@@ -500,39 +497,40 @@ const physicsQuestions = [
     id: 25,
     type: "num",
     text: "For a given displacement‑vs‑time graph of a particle of a string, amplitude of the wave is  ___ cm.",
-    answer: "5"}
+    answer: "5"
+  }
 ];
 
-/* === CHEMISTRY QUESTIONS (from previous message) === */
+/* === CHEMISTRY QUESTIONS (ASCII-safe) === */
 const chemistryQuestions = [
   {
     id: 1,
     type: "mcq",
-    text: "A 1000 g aqueous solution contains 200 g of CaBr₂. Calculate the molality of the solution. (Atomic masses: Ca = 40, Br = 80)",
+    text: "A 1000 g aqueous solution contains 200 g of CaBr2. Calculate the molality of the solution. (Atomic masses: Ca = 40, Br = 80)",
     options: [
-      "1.0 mol kg⁻¹",
-      "2.0 mol kg⁻¹",
-      "1.25 mol kg⁻¹",
-      "0.20 mol kg⁻¹"
+      "1.0 mol kg-1",
+      "2.0 mol kg-1",
+      "1.25 mol kg-1",
+      "0.20 mol kg-1"
     ],
     correctIndex: 2
   },
   {
     id: 2,
     type: "mcq",
-    text: "50 mL of 20‑volume H₂O₂ is mixed with 200 mL of 10‑volume H₂O₂. Assuming density is same as water, what is the volume strength of the resulting solution?",
+    text: "50 mL of 20-volume H2O2 is mixed with 200 mL of 10-volume H2O2. Assuming density is same as water, what is the volume strength of the resulting solution?",
     options: [
-      "15‑volume",
-      "17.5‑volume",
-      "18‑volume",
-      "12‑volume"
+      "15-volume",
+      "17.5-volume",
+      "18-volume",
+      "12-volume"
     ],
     correctIndex: 0
   },
   {
     id: 3,
     type: "mcq",
-    text: "In Kjeldahl’s method, NH₃ evolved from 14 g of an organic compound is absorbed in 100 mL of 1 M H₃PO₄. The excess acid requires 100 mL of 0.5 M NaOH for complete neutralisation. Percentage of nitrogen in the compound is:",
+    text: "In Kjeldahl's method, NH3 evolved from 14 g of an organic compound is absorbed in 100 mL of 1 M H3PO4. The excess acid requires 100 mL of 0.5 M NaOH for complete neutralisation. Percentage of nitrogen in the compound is:",
     options: [
       "25%",
       "50%",
@@ -546,17 +544,17 @@ const chemistryQuestions = [
     type: "mcq",
     text: "A moth repellent contains 49% C, 2.7% H and 48.3% Cl by mass. The molecular formula of the compound is:",
     options: [
-      "C₆H₄Cl₂",
-      "C₃H₃Cl",
-      "C₂H₂Cl",
-      "C₂H₄Cl₂"
+      "C6H4Cl2",
+      "C3H3Cl",
+      "C2H2Cl",
+      "C2H4Cl2"
     ],
     correctIndex: 0
   },
   {
     id: 5,
     type: "mcq",
-    text: "Potassium superoxide (KO₂) is used in breathing masks. For the reaction 4KO₂ + 2H₂O → 4KOH + 3O₂, if 8 mol KO₂ and 5 mol H₂O are present, the mass of O₂ (in g) produced is:",
+    text: "Potassium superoxide (KO2) is used in breathing masks. For the reaction 4KO2 + 2H2O -> 4KOH + 3O2, if 8 mol KO2 and 5 mol H2O are present, the mass of O2 (in g) produced is:",
     options: [
       "5 g",
       "6 g",
@@ -568,7 +566,7 @@ const chemistryQuestions = [
   {
     id: 6,
     type: "mcq",
-    text: "A liquid A has vapour pressure 70 torr at 27°C. A solution contains mole fraction of B = 0.2 and shows total vapour pressure 84 torr at 27°C and behaves ideally. Vapour pressure of pure liquid B (in torr) at 27°C is:",
+    text: "A liquid A has vapour pressure 70 torr at 27 deg C. A solution contains mole fraction of B = 0.2 and shows total vapour pressure 84 torr at 27 deg C and behaves ideally. Vapour pressure of pure liquid B (in torr) at 27 deg C is:",
     options: [
       "14",
       "56",
@@ -580,22 +578,22 @@ const chemistryQuestions = [
   {
     id: 7,
     type: "mcq",
-    text: "Which of the following aqueous solutions at 300 K will have the highest vapour pressure? (α = degree of dissociation)",
+    text: "Which of the following aqueous solutions at 300 K will have the highest vapour pressure? (alpha = degree of dissociation)",
     options: [
-      "0.1 M CH₃COOH, α = 0.7",
-      "0.1 M KCl, α = 1",
-      "0.1 M Na₂SO₄, α = 1",
-      "0.1 M K₂[ZnFe(CN)₆], α = 1"
+      "0.1 M CH3COOH, alpha = 0.7",
+      "0.1 M KCl, alpha = 1",
+      "0.1 M Na2SO4, alpha = 1",
+      "0.1 M K2[ZnFe(CN)6], alpha = 1"
     ],
     correctIndex: 0
   },
   {
     id: 8,
     type: "mcq",
-    text: "For the following transformations, which statement is NOT correct?\n(i) Nitrobenzene → Aniline (reduction)\n(ii) Nitrobenzene (strongly deactivated ring) undergoing Friedel–Crafts reaction\n(iii) Nitro group reduction followed by nucleophilic substitution\nChoose the incorrect given option similar to the original question.",
+    text: "For the following transformations, which statement is NOT correct?\n(i) Nitrobenzene -> Aniline (reduction)\n(ii) Nitrobenzene (strongly deactivated ring) undergoing Friedel-Crafts reaction\n(iii) Nitro group reduction followed by nucleophilic substitution\nChoose the incorrect option.",
     options: [
       "A is incorrect",
-      "B is incorrect (Friedel–Crafts on highly deactivated ring)",
+      "B is incorrect (Friedel-Crafts on highly deactivated ring)",
       "C is incorrect",
       "D is incorrect"
     ],
@@ -604,7 +602,7 @@ const chemistryQuestions = [
   {
     id: 9,
     type: "mcq",
-    text: "Isopropylbenzene (cumene) reacts with O₂ (hv, BF₃) giving cumene hydroperoxide, which on hydrolysis and subsequent work‑up gives P, Q, R. The correct set of products P, Q, R is:",
+    text: "Isopropylbenzene (cumene) reacts with O2 (hv, BF3) giving cumene hydroperoxide, which on hydrolysis and work-up gives P, Q, R. The correct set of products P, Q, R is:",
     options: [
       "Benzaldehyde, phenol, acetone",
       "Toluene, phenol, ethanol",
@@ -616,7 +614,7 @@ const chemistryQuestions = [
   {
     id: 10,
     type: "mcq",
-    text: "Match the reactions with products:\nP) Phenol + CHCl₃/NaOH → ?\nQ) Phenol + conc. HNO₃ → ?\nR) Salicylic acid + acetic anhydride → ?\nS) Phenol → (i) NaOH (ii) CO₂/H⁺ → ?",
+    text: "Match the reactions with products:\nP) Phenol + CHCl3/NaOH -> ?\nQ) Phenol + conc. HNO3 -> ?\nR) Salicylic acid + acetic anhydride -> ?\nS) Phenol -> (i) NaOH (ii) CO2/H+ -> ?",
     options: [
       "P: Salicylic acid; Q: Picric acid; R: Aspirin; S: Salicylaldehyde",
       "P: Salicylaldehyde; Q: Picric acid; R: Aspirin; S: Salicylic acid",
@@ -628,7 +626,7 @@ const chemistryQuestions = [
   {
     id: 11,
     type: "mcq",
-    text: "Which statement about distinguishing the given pairs is incorrect?\n(A) Alkynes detected by ammoniacal Cu₂Cl₂\n(B) Glucose and fructose distinguished by Fehling’s solution\n(C) –CHO group detected by Tollens’ reagent\n(D) Phenol detected by neutral FeCl₃",
+    text: "Which statement about distinguishing the given pairs is incorrect?\n(A) Alkynes detected by ammoniacal Cu2Cl2\n(B) Glucose and fructose distinguished by Fehling's solution\n(C) -CHO group detected by Tollens' reagent\n(D) Phenol detected by neutral FeCl3",
     options: [
       "A",
       "B",
@@ -640,48 +638,48 @@ const chemistryQuestions = [
   {
     id: 12,
     type: "mcq",
-    text: "Match List I (compound type) with List II (reagent used):\nA) Aliphatic aldehyde\nB) Phenol\nC) Primary amine\nD) Methyl ketone or ethanol with CH₃–C– or CH₃–CH–OH structure\nList II:\nI) Alkaline CuSO₄ + sodium citrate\nII) Neutral FeCl₃\nIII) Alkaline chloroform\nIV) KI + NaOCl (iodoform test)\nChoose correct matching.",
+    text: "Match List I (compound type) with List II (reagent used):\nA) Aliphatic aldehyde\nB) Phenol\nC) Primary amine\nD) Methyl ketone or ethanol with CH3-CO- or CH3-CH-OH structure\nList II:\nI) Alkaline CuSO4 + sodium citrate\nII) Neutral FeCl3\nIII) Alkaline chloroform\nIV) KI + NaOCl (iodoform test)",
     options: [
-      "A–II, B–IV, C–III, D–I",
-      "A–IV, B–I, C–II, D–III",
-      "A–III, B–IV, C–I, D–II",
-      "A–III, B–IV, C–II, D–I"
+      "A-II, B-IV, C-III, D-I",
+      "A-IV, B-I, C-II, D-III",
+      "A-III, B-IV, C-I, D-II",
+      "A-III, B-IV, C-II, D-I"
     ],
     correctIndex: 3
   },
   {
     id: 13,
     type: "mcq",
-    text: "Buna‑N rubber can be represented by which repeating unit (polymer structure)?",
+    text: "Buna-N rubber can be represented by which repeating unit?",
     options: [
-      "–[CH₂–CH(Cl)]–",
-      "–[CH₂–CH=CH–CH₂–CH₂–CH(CN)]–",
-      "–[CH₂–CH=CH–CH₂–CH₂–CH₂]–",
-      "–[CH₂–CH(CN)]–"
+      "-[CH2-CH(Cl)]-",
+      "-[CH2-CH=CH-CH2-CH2-CH(CN)]-",
+      "-[CH2-CH=CH-CH2-CH2-CH2]-",
+      "-[CH2-CH(CN)]-"
     ],
     correctIndex: 1
   },
   {
     id: 14,
     type: "mcq",
-    text: "Identify the correct description of the given Fischer and Haworth structures (as in the original): one is L‑glucose, the other β‑glucopyranose, and one is D‑fructose. Choose the correct combination.",
+    text: "Identify the correct description of the given Fischer and Haworth structures: one is L-glucose, the other beta-glucopyranose, and one is D-fructose.",
     options: [
-      "D‑Glucose, β‑glucopyranose, D‑fructose",
-      "L‑Glucose, β‑glucopyranose, L‑fructose",
-      "L‑Glucose, α‑glucopyranose, D‑fructose",
-      "L‑Glucose, β‑glucopyranose, D‑fructose"
+      "D-Glucose, beta-glucopyranose, D-fructose",
+      "L-Glucose, beta-glucopyranose, L-fructose",
+      "L-Glucose, alpha-glucopyranose, D-fructose",
+      "L-Glucose, beta-glucopyranose, D-fructose"
     ],
     correctIndex: 3
   },
   {
     id: 15,
     type: "mcq",
-    text: "According to molecular orbital theory, which statement regarding Li₂ and Li₂⁻ is correct?",
+    text: "According to molecular orbital theory, which statement regarding Li2 and Li2- is correct?",
     options: [
       "Both are unstable",
-      "Li₂ is unstable and Li₂⁻ is stable",
-      "Li₂ is stable and Li₂⁻ is unstable",
-      "Both Li₂ and Li₂⁻ are stable"
+      "Li2 is unstable and Li2- is stable",
+      "Li2 is stable and Li2- is unstable",
+      "Both Li2 and Li2- are stable"
     ],
     correctIndex: 3
   },
@@ -702,22 +700,22 @@ const chemistryQuestions = [
     type: "mcq",
     text: "In which of the following processes does bond order increase and paramagnetic character change to diamagnetic?",
     options: [
-      "O₂ → O₂⁻",
-      "O₂ → O₂²⁻",
-      "NO → NO⁺",
-      "N₂ → N₂⁺"
+      "O2 -> O2-",
+      "O2 -> O2 2-",
+      "NO -> NO+",
+      "N2 -> N2+"
     ],
     correctIndex: 2
   },
   {
     id: 18,
     type: "mcq",
-    text: "In XeOF₄, the hybridisation of Xe and number of lone pairs on Xe are respectively:",
+    text: "In XeOF4, the hybridisation of Xe and number of lone pairs on Xe are respectively:",
     options: [
-      "sp³d and 2",
-      "sp³d² and 2",
-      "sp³d² and 1",
-      "sp³d and 1"
+      "sp3d and 2",
+      "sp3d2 and 2",
+      "sp3d2 and 1",
+      "sp3d and 1"
     ],
     correctIndex: 3
   },
@@ -726,10 +724,10 @@ const chemistryQuestions = [
     type: "mcq",
     text: "Which of the following molecules is diamagnetic?",
     options: [
-      "B₂",
-      "N₂",
-      "O₂",
-      "S₂"
+      "B2",
+      "N2",
+      "O2",
+      "S2"
     ],
     correctIndex: 1
   },
@@ -738,319 +736,317 @@ const chemistryQuestions = [
     type: "mcq",
     text: "In which of the following ionisation processes does bond energy increase and magnetic behaviour change from paramagnetic to diamagnetic?",
     options: [
-      "NO → NO⁺",
-      "N₂ → N₂⁺",
-      "C₂ → C₂⁺",
-      "O₂ → O₂⁺"
+      "NO -> NO+",
+      "N2 -> N2+",
+      "C2 -> C2+",
+      "O2 -> O2+"
     ],
     correctIndex: 0
   },
   {
     id: 21,
     type: "num",
-    text: "A solution contains 20 g haemoglobin in 1 dm³, separated from pure water by a semipermeable membrane at 300 K. At equilibrium, the solution column is 96 mm higher than water. Density of final solution = 1.013 g mL⁻¹, g = 10 m s⁻², R = 0.08 L atm K⁻¹ mol⁻¹. Number of millimoles in 320 g haemoglobin is:",
+    text: "A solution contains 20 g haemoglobin in 1 dm3, separated from pure water by a semipermeable membrane at 300 K. At equilibrium, the solution column is 96 mm higher than water. Density of final solution = 1.013 g mL-1, g = 10 m s-2, R = 0.08 L atm K-1 mol-1. Number of millimoles in 320 g haemoglobin is:",
     answer: "6.4"
   },
   {
     id: 22,
     type: "num",
-    text: "For an ethanol–water solution at room temperature showing positive deviation from Raoult’s law, consider:\n(i) ΔG = 0\n(ii) ΔS_system > 0\n(iii) ΔS_surroundings < 0\n(iv) ΔH = 0\nHow many of these statements are correct?",
+    text: "For an ethanol-water solution at room temperature showing positive deviation from Raoult's law, consider:\n(i) delta G = 0\n(ii) delta S_system > 0\n(iii) delta S_surroundings < 0\n(iv) delta H = 0\nHow many of these statements are correct?",
     answer: "2"
   },
   {
     id: 23,
     type: "num",
-    text: "From the set NO₂, OCH₃, Cl, CH₃, CHO, CN, NH₂, SO₃H, CH₃ (substituents on benzene), total number of compounds that undergo electrophilic aromatic substitution faster than benzene is:",
+    text: "From the set NO2, OCH3, Cl, CH3, CHO, CN, NH2, SO3H, CH3 (substituents on benzene), total number of compounds that undergo electrophilic aromatic substitution faster than benzene is:",
     answer: "5"
   },
   {
     id: 24,
     type: "num",
-    text: "Total number of sp² hybrid orbitals present in a benzene (C₆H₆) molecule is:",
+    text: "Total number of sp2 hybrid orbitals present in a benzene (C6H6) molecule is:",
     answer: "24"
   },
   {
     id: 25,
     type: "num",
-    text: "From the species XeF₅⁻, XeO₃, XeO₂F₂, XeF₅, XeO₃F₂, XeOF₄, XeF₄, number of xenon compounds having exactly one lone pair on central Xe is:",
+    text: "From the species XeF5-, XeO3, XeO2F2, XeF5, XeO3F2, XeOF4, XeF4, number of xenon compounds having exactly one lone pair on central Xe is:",
     answer: "4"
   }
 ];
 
 /* === MATHS QUESTIONS === */
-/* Yahan apna Maths ka 25‑question array paste karo
-   (jo tumhari maths CBT file me const questions = [...] tha), naam mathsQuestions. */
 const mathsQuestions = [
-  // REPLACE this demo with your real Maths 25-question array
   {
     id: 1,
     type: "mcq",
-    text: "A 1000 g aqueous solution contains 200 g of CaBr₂. Calculate the molality of the solution. (Atomic masses: Ca = 40, Br = 80)",
+    text: "Let [x] denote the greatest integer <= x. The real numbers x satisfying\n e^[x] - e^x + 1/3 = 0\nlie in which interval?",
     options: [
-      "1.0 mol kg⁻¹",
-      "2.0 mol kg⁻¹",
-      "1.25 mol kg⁻¹",
-      "0.20 mol kg⁻¹"
+      "(0, 1/e)",
+      "(0, ln 2)",
+      "(ln 2, ln 3)",
+      "(1, e)"
     ],
-    correctIndex: 2
+    correctIndex: 1
   },
   {
     id: 2,
     type: "mcq",
-    text: "50 mL of 20‑volume H₂O₂ is mixed with 200 mL of 10‑volume H₂O₂. Assuming density is same as water, what is the volume strength of the resulting solution?",
+    text: "Let g: N -> N be defined by\n g(3n+1) = 3n+2, g(3n+2) = 3n+3, g(3n+3) = 3n+1, for all n >= 0.\nWhich statement is true?",
     options: [
-      "15‑volume",
-      "17.5‑volume",
-      "18‑volume",
-      "12‑volume"
+      "There exists f:N->N such that g(f(x)) = f(x)",
+      "There exists one-one f:N->N such that f(g(x)) = f(x)",
+      "There exists onto f:N->N such that f(g(x)) = f(x)",
+      "g(g(g(x))) = g(x)"
     ],
-    correctIndex: 0
+    correctIndex: 2
   },
   {
     id: 3,
     type: "mcq",
-    text: "In Kjeldahl’s method, NH₃ evolved from 14 g of an organic compound is absorbed in 100 mL of 1 M H₃PO₄. The excess acid requires 100 mL of 0.5 M NaOH for complete neutralisation. Percentage of nitrogen in the compound is:",
+    text: "Let [x] be the greatest integer <= x. The equation\n sin^-1(x^2 - 3) + cos^-1(x) = [x]\nfor x in [-1,1] has how many solutions?",
     options: [
-      "25%",
-      "50%",
-      "5.0%",
-      "2.5%"
+      "2",
+      "infinitely many",
+      "0",
+      "1"
     ],
-    correctIndex: 0
+    correctIndex: 1
   },
   {
     id: 4,
     type: "mcq",
-    text: "A moth repellent contains 49% C, 2.7% H and 48.3% Cl by mass. The molecular formula of the compound is:",
+    text: "If the sum of first 20 terms of the series\nlog_7(12x) + log_7(13x) + log_7(14x) + ...\nis 460, then the value of x is:",
     options: [
-      "C₆H₄Cl₂",
-      "C₃H₃Cl",
-      "C₂H₂Cl",
-      "C₂H₄Cl₂"
+      "7^2",
+      "7^12",
+      "e",
+      "7^4621"
     ],
     correctIndex: 0
   },
   {
     id: 5,
     type: "mcq",
-    text: "Potassium superoxide (KO₂) is used in breathing masks. For the reaction 4KO₂ + 2H₂O → 4KOH + 3O₂, if 8 mol KO₂ and 5 mol H₂O are present, the mass of O₂ (in g) produced is:",
+    text: "For non-zero real r, let [r] be greatest integer <= r. The value of\n lim (n->infinity) ([r][2r]...[nr]) / n^2\nis:",
     options: [
-      "5 g",
-      "6 g",
-      "160 g",
-      "192 g"
+      "r",
+      "2r",
+      "0",
+      "r^2/2"
     ],
     correctIndex: 3
   },
   {
     id: 6,
     type: "mcq",
-    text: "A liquid A has vapour pressure 70 torr at 27°C. A solution contains mole fraction of B = 0.2 and shows total vapour pressure 84 torr at 27°C and behaves ideally. Vapour pressure of pure liquid B (in torr) at 27°C is:",
+    text: "Let a be real and define\n f(x) = cos^-1(1-[x]) + sin^-1(1-x) - a(x-x^3), x != 0, where [x] is greatest integer.\nIf f(x) is continuous at x = 0, then:",
     options: [
-      "14",
-      "56",
-      "140",
-      "70"
-    ],
-    correctIndex: 2
-  },
-  {
-    id: 7,
-    type: "mcq",
-    text: "Which of the following aqueous solutions at 300 K will have the highest vapour pressure? (α = degree of dissociation)",
-    options: [
-      "0.1 M CH₃COOH, α = 0.7",
-      "0.1 M KCl, α = 1",
-      "0.1 M Na₂SO₄, α = 1",
-      "0.1 M K₂[ZnFe(CN)₆], α = 1"
+      "No such real a exists",
+      "a = 0",
+      "a = 2",
+      "a = 4"
     ],
     correctIndex: 0
   },
   {
-    id: 8,
+    id: 7,
     type: "mcq",
-    text: "For the following transformations, which statement is NOT correct?\n(i) Nitrobenzene → Aniline (reduction)\n(ii) Nitrobenzene (strongly deactivated ring) undergoing Friedel–Crafts reaction\n(iii) Nitro group reduction followed by nucleophilic substitution\nChoose the incorrect given option similar to the original question.",
+    text: "For which real values of a does the quadratic equation\n(x+1)(x+2) + 4ax - 2 = 0\nhave exactly one root in the interval (0,1)?",
     options: [
-      "A is incorrect",
-      "B is incorrect (Friedel–Crafts on highly deactivated ring)",
-      "C is incorrect",
-      "D is incorrect"
+      "(0,2)",
+      "(2,4)",
+      "(1,3)",
+      "(-3,-1)"
     ],
-    correctIndex: 1
+    correctIndex: 2
   },
   {
-    id: 9,
+    id: 8,
     type: "mcq",
-    text: "Isopropylbenzene (cumene) reacts with O₂ (hv, BF₃) giving cumene hydroperoxide, which on hydrolysis and subsequent work‑up gives P, Q, R. The correct set of products P, Q, R is:",
+    text: "Let A = {1,2,3,...,10} and f:A->A be defined by\n f(k) = k+1 if k is odd, f(k) = k if k is even.\nNumber of functions g:A->A such that g(f(x)) = f(x) is:",
     options: [
-      "Benzaldehyde, phenol, acetone",
-      "Toluene, phenol, ethanol",
-      "Benzyl alcohol, phenol, formaldehyde",
-      "Phenol and acetone (major), along with side product"
+      "55",
+      "C(10,5)",
+      "5!",
+      "10^5"
     ],
     correctIndex: 3
   },
   {
+    id: 9,
+    type: "mcq",
+    text: "If 0 < a,b < 1 and tan^-1(a) + tan^-1(b) = 4 tan^-1(1/2), then the value of\n a + b - ab + a^2 b^2 + a^3 b^3 + ... (to infinity)\nis:",
+    options: [
+      "e^4",
+      "e^2",
+      "ln 2",
+      "ln 4"
+    ],
+    correctIndex: 2
+  },
+  {
     id: 10,
     type: "mcq",
-    text: "Match the reactions with products:\nP) Phenol + CHCl₃/NaOH → ?\nQ) Phenol + conc. HNO₃ → ?\nR) Salicylic acid + acetic anhydride → ?\nS) Phenol → (i) NaOH (ii) CO₂/H⁺ → ?",
+    text: "Sum of the first n terms of a non-constant A.P. is\n S_n = 50n - (n(n-7)A)/2, where A is constant.\nIf d is its common difference, then the ordered pair (d, a_50) equals:",
     options: [
-      "P: Salicylic acid; Q: Picric acid; R: Aspirin; S: Salicylaldehyde",
-      "P: Salicylaldehyde; Q: Picric acid; R: Aspirin; S: Salicylic acid",
-      "P: Picric acid; Q: Salicylic acid; R: Aspirin; S: Salicylaldehyde",
-      "P: Salicylaldehyde; Q: Salicylic acid; R: Picric acid; S: Aspirin"
+      "(A, 50 - 46A)",
+      "(A, 50 - 45A)",
+      "(50, 50 - 46A)",
+      "(50, 50 - 45A)"
     ],
-    correctIndex: 1
+    correctIndex: 0
   },
   {
     id: 11,
     type: "mcq",
-    text: "Which statement about distinguishing the given pairs is incorrect?\n(A) Alkynes detected by ammoniacal Cu₂Cl₂\n(B) Glucose and fructose distinguished by Fehling’s solution\n(C) –CHO group detected by Tollens’ reagent\n(D) Phenol detected by neutral FeCl₃",
+    text: "For x,y > 0, define\n y = log10 x + log10 (x^13) + log10 (x^19) + ... (up to 2y terms)\n(as in original pattern). The ordered pair (x,y) is:",
     options: [
-      "A",
-      "B",
-      "C",
-      "D"
+      "(10^6, 6)",
+      "(10^6, 9)",
+      "(10^2, 3)",
+      "(10^4, 6)"
     ],
     correctIndex: 1
   },
   {
     id: 12,
     type: "mcq",
-    text: "Match List I (compound type) with List II (reagent used):\nA) Aliphatic aldehyde\nB) Phenol\nC) Primary amine\nD) Methyl ketone or ethanol with CH₃–C– or CH₃–CH–OH structure\nList II:\nI) Alkaline CuSO₄ + sodium citrate\nII) Neutral FeCl₃\nIII) Alkaline chloroform\nIV) KI + NaOCl (iodoform test)\nChoose correct matching.",
+    text: "Let [t] denote greatest integer. If for some l in (0,1), the limit\n L = lim (x->0) (1-[x]x)/(x-[x]x)\nexists, then L equals:",
     options: [
-      "A–II, B–IV, C–III, D–I",
-      "A–IV, B–I, C–II, D–III",
-      "A–III, B–IV, C–I, D–II",
-      "A–III, B–IV, C–II, D–I"
+      "1",
+      "2",
+      "1/2",
+      "0"
     ],
-    correctIndex: 3
+    correctIndex: 1
   },
   {
     id: 13,
     type: "mcq",
-    text: "Buna‑N rubber can be represented by which repeating unit (polymer structure)?",
+    text: "Let f:(1,3)->R be defined by\n f(x) = (5x)/(x-1) for 1<x<=2,\n f(x) = (5x)/(x-2) for 2<x<3.\nThe range of f is:",
     options: [
-      "–[CH₂–CH(Cl)]–",
-      "–[CH₂–CH=CH–CH₂–CH₂–CH(CN)]–",
-      "–[CH₂–CH=CH–CH₂–CH₂–CH₂]–",
-      "–[CH₂–CH(CN)]–"
-    ],
-    correctIndex: 1
-  },
-  {
-    id: 14,
-    type: "mcq",
-    text: "Identify the correct description of the given Fischer and Haworth structures (as in the original): one is L‑glucose, the other β‑glucopyranose, and one is D‑fructose. Choose the correct combination.",
-    options: [
-      "D‑Glucose, β‑glucopyranose, D‑fructose",
-      "L‑Glucose, β‑glucopyranose, L‑fructose",
-      "L‑Glucose, α‑glucopyranose, D‑fructose",
-      "L‑Glucose, β‑glucopyranose, D‑fructose"
-    ],
-    correctIndex: 3
-  },
-  {
-    id: 15,
-    type: "mcq",
-    text: "According to molecular orbital theory, which statement regarding Li₂ and Li₂⁻ is correct?",
-    options: [
-      "Both are unstable",
-      "Li₂ is unstable and Li₂⁻ is stable",
-      "Li₂ is stable and Li₂⁻ is unstable",
-      "Both Li₂ and Li₂⁻ are stable"
-    ],
-    correctIndex: 3
-  },
-  {
-    id: 16,
-    type: "mcq",
-    text: "Aluminium commonly shows +3 oxidation state, but thallium exists in +1 and +3 states. This difference is mainly due to:",
-    options: [
-      "Lanthanoid contraction",
-      "Lattice energy effect",
-      "Diagonal relationship",
-      "Inert pair effect"
-    ],
-    correctIndex: 3
-  },
-  {
-    id: 17,
-    type: "mcq",
-    text: "In which of the following processes does bond order increase and paramagnetic character change to diamagnetic?",
-    options: [
-      "O₂ → O₂⁻",
-      "O₂ → O₂²⁻",
-      "NO → NO⁺",
-      "N₂ → N₂⁺"
+      "(-infinity,4) U (5,infinity)",
+      "(4,infinity)",
+      "(-infinity,4) U (5,infinity) (both branches)",
+      "(4,5)"
     ],
     correctIndex: 2
   },
   {
-    id: 18,
+    id: 14,
     type: "mcq",
-    text: "In XeOF₄, the hybridisation of Xe and number of lone pairs on Xe are respectively:",
+    text: "The value of\n csc(2cot^-1 5) * cos^-1(33/56)\nis:",
     options: [
-      "sp³d and 2",
-      "sp³d² and 2",
-      "sp³d² and 1",
-      "sp³d and 1"
-    ],
-    correctIndex: 3
-  },
-  {
-    id: 19,
-    type: "mcq",
-    text: "Which of the following molecules is diamagnetic?",
-    options: [
-      "B₂",
-      "N₂",
-      "O₂",
-      "S₂"
+      "33/65",
+      "56/65",
+      "65/33",
+      "33/56"
     ],
     correctIndex: 1
   },
   {
+    id: 15,
+    type: "mcq",
+    text: "If x,y>0, xy<1 and\n S = x + y + x^2 + xy + y^2 + x^3 + x^2 y + x y^2 + y^3 + ... (to infinity),\nthen S equals:",
+    options: [
+      "(xy-xy)/((1-x)(1-y))",
+      "xy/((1-x)(1-y))",
+      "(1-xy)/((1-x)(1-y))",
+      "xy-xy/((1-x)(1-y))"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 16,
+    type: "mcq",
+    text: "Let f:(0,pi) U (pi,3pi/2)->R be defined by\n f(x) = max_{0<=t<=x} (sin t) for 0<x<=pi/2,\n f(x) = 1 for pi/2<x<=pi,\n f(x) = cos x for pi<x<3pi/2.\nWhich is true?",
+    options: [
+      "f is not continuous at exactly two points",
+      "f is continuous everywhere but not differentiable at exactly one point",
+      "f is differentiable everywhere",
+      "f is continuous everywhere but not differentiable at exactly two points"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 17,
+    type: "mcq",
+    text: "For 0<x<3pi/2, let\n f(x) = x, g(x) = tan x, h(x) = sqrt(1-x^2)/(1+x^2),\nand p(x) = h(f(g(x))). Then p(pi/3) equals:",
+    options: [
+      "tan(5pi/12)",
+      "tan(pi/12)",
+      "tan(7pi/12)",
+      "tan(11pi/12)"
+    ],
+    correctIndex: 3
+  },
+  {
+    id: 18,
+    type: "mcq",
+    text: "The value of the limit\n lim (x->0) (cos(sin x) - cos x)/x^4\nis:",
+    options: [
+      "1/4",
+      "1/6",
+      "1/12",
+      "1"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 19,
+    type: "mcq",
+    text: "Let f:R->R satisfy f(x)-f(y) = x-y for all x,y and f(0)=1. Then:",
+    options: [
+      "f(x)=0 for all x",
+      "f(x)=x for all x",
+      "f can be any function",
+      "f(x)=x+1 for all x"
+    ],
+    correctIndex: 3
+  },
+  {
     id: 20,
     type: "mcq",
-    text: "In which of the following ionisation processes does bond energy increase and magnetic behaviour change from paramagnetic to diamagnetic?",
+    text: "If x = 1 - tan^4(theta/2) and y = 1 - cos^2(theta) for small theta->0, then:",
     options: [
-      "NO → NO⁺",
-      "N₂ → N₂⁺",
-      "C₂ → C₂⁺",
-      "O₂ → O₂⁺"
+      "y+1 = x+1",
+      "x+1 = y-1",
+      "y+1 = x-1",
+      "x+1 = y+1"
     ],
-    correctIndex: 0
+    correctIndex: 2
   },
   {
     id: 21,
     type: "num",
-    text: "A solution contains 20 g haemoglobin in 1 dm³, separated from pure water by a semipermeable membrane at 300 K. At equilibrium, the solution column is 96 mm higher than water. Density of final solution = 1.013 g mL⁻¹, g = 10 m s⁻², R = 0.08 L atm K⁻¹ mol⁻¹. Number of millimoles in 320 g haemoglobin is:",
-    answer: "6.4"
+    text: "For x in R, number of real roots of\n 3|x|^2 - 4x^2 + 1 = |x-1|\nis:",
+    answer: "4"
   },
   {
     id: 22,
     type: "num",
-    text: "For an ethanol–water solution at room temperature showing positive deviation from Raoult’s law, consider:\n(i) ΔG = 0\n(ii) ΔS_system > 0\n(iii) ΔS_surroundings < 0\n(iv) ΔH = 0\nHow many of these statements are correct?",
-    answer: "2"
+    text: "Let A={a,b,c} and B={1,2,3,4}. Let\n C = { f:A->B | |f(A)| = 2 and f is not one-one }.\nNumber of elements in C is:",
+    answer: "19"
   },
   {
     id: 23,
     type: "num",
-    text: "From the set NO₂, OCH₃, Cl, CH₃, CHO, CN, NH₂, SO₃H, CH₃ (substituents on benzene), total number of compounds that undergo electrophilic aromatic substitution faster than benzene is:",
-    answer: "5"
+    text: "Evaluate\n 50 tan(cot^-1 3 + cot^-1 2) - 42 tan(tan^-1(2/2)).",
+    answer: "29"
   },
   {
     id: 24,
     type: "num",
-    text: "Total number of sp² hybrid orbitals present in a benzene (C₆H₆) molecule is:",
-    answer: "24"
+    text: "If\n 1/10 + 1/32 + 1/33 + ... up to (1/(10*32*33)) has value l, then 12l equals:",
+    answer: "3"
   },
   {
     id: 25,
     type: "num",
-    text: "From the species XeF₅⁻, XeO₃, XeO₂F₂, XeF₅, XeO₃F₂, XeOF₄, XeF₄, number of xenon compounds having exactly one lone pair on central Xe is:",
-    answer: "4"
+    text: "Suppose X equals the limit value given in the original detailed expression. The final evaluated value of X is:",
+    answer: "1"
+  }
 ];
 
 /* ===== 2. STATE ===== */
@@ -1142,7 +1138,7 @@ function switchSubject(sub){
   document.getElementById("subjectLabel").textContent = fullName;
   document.getElementById("subShort").textContent = shortName;
   document.getElementById("palTitle").textContent =
-    fullName + " 1‑" + questionMap[sub].length;
+    fullName + " 1-" + questionMap[sub].length;
 
   qs("tabPhy").classList.toggle("active", sub==="physics");
   qs("tabChem").classList.toggle("active", sub==="chemistry");
@@ -1202,7 +1198,7 @@ function showQuestion(sub, idx){
 
   qs("qNumberLabel").textContent = (idx+1);
   qs("qText").textContent = q.text;
-  const qType = (q.type==="mcq") ? "Single Correct MCQ (+4, −1)" : "Numerical (+4, 0)";
+  const qType = (q.type==="mcq") ? "Single Correct MCQ (+4, -1)" : "Numerical (+4, 0)";
   qs("qTypeLabel").textContent = qType;
 
   const optList = qs("optList");
@@ -1343,3 +1339,4 @@ function showSummary(){ calculateAndShowSummary(); }
 </script>
 </body>
 </html>
+
