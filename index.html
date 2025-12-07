@@ -62,10 +62,26 @@
       .row{flex-direction:column}
       .col-side{flex:1 1 auto}
     }
+        .main-container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        overflow: auto;
+      }
+      .main-container {
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body>
-<div class="app">
+<body>
+  <div class="main-container">  
   <header>
     <h1>JEE MAIN CATALYST SERIES – Part Test-1 (PCM)</h1>
     <p>Duration: 3 Hours &nbsp; | &nbsp; Maximum Marks: 300</p>
@@ -105,7 +121,7 @@
             <li>Use the subject tabs and question palette to navigate.</li>
           </ul>
           <p style="margin-top:8px;">Click on <b>Start Test</b> to begin the 3-hour countdown.</p>
-          <button class="btn btn-primary" style="margin-top:8px;" onclick="beginExam()">Start Test</button>
+         <button id="startTestBtn" class="btn btn-primary" style="margin-top:8px;" onclick="beginExam()">Start Test</button>
         </div>
       </div>
     </div>
@@ -1335,31 +1351,36 @@ function calculateAndShowSummary(){
   qs("summaryPanel").classList.remove("hidden");
 }
 
-function showSummary(){ calculateAndShowSummary(); }
-</script>
-  <script>
-  // Yaha tumhara existing timer/test code hoga, use mat hatao
+<!-- pehle tumhara pura existing JS -->
+<script>
+  function showSummary() {
+    calculateAndShowSummary();
+  }
 
-  const startBtn = document.getElementById('startTestBtn'); // jo bhi tumhara Start Test button ka id hai
+  // yaha tumhara baaki purana JS code hoga
+</script>
+
+<!-- iske baad naya fullscreen wala JS -->
+<script>
+  const startBtn = document.getElementById('startTestBtn'); // Start Test button ka id
   if (startBtn) {
-      startBtn.addEventListener('click', () => {
-          const main = document.querySelector('.main-container');
-          if (main) {
-              main.style.width = window.innerWidth + 'px';
-              main.style.height = window.innerHeight + 'px';
-          }
-      });
+    startBtn.addEventListener('click', () => {
+      const main = document.querySelector('.main-container');
+      if (main) {
+        main.style.width = window.innerWidth + 'px';
+        main.style.height = window.innerHeight + 'px';
+      }
+    });
   }
 
   window.addEventListener('resize', () => {
-      const main = document.querySelector('.main-container');
-      if (main) {
-          main.style.width = window.innerWidth + 'px';
-          main.style.height = window.innerHeight + 'px';
-      }
+    const main = document.querySelector('.main-container');
+    if (main) {
+      main.style.width = window.innerWidth + 'px';
+      main.style.height = window.innerHeight + 'px';
+    }
   });
 </script>
-</body>
 
 </body>
 </html>
